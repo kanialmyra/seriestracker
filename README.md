@@ -91,3 +91,28 @@ Langkah-langkah:
 6. Menambahkan kode berikut ke dalam list urlpatterns:
     path('', include('main.urls'))
 7. Menyimpan file urls.py
+8. Melakukan add, commit, dan push dari direktori lokal untuk memperbarui repositori GitHub
+
+
+7) Melakukan deployment ke PWS terhadap aplikasi yang sudah dibuat
+
+Langkah-langkah:
+
+
+
+2. Request -> Internet -> Proyek -> urls.py (URL routing ke aplikasi sesuai request) -> views.py (views.py mengambil data dari models.py dan database serta "menempelkan" template web page dari file html terhadap data) -> Respons ditampilkan dalam bentuk web page 
+
+3. Penggunaan virtual environment bertujuan untuk bisa mengisolasikan masing-masing proyek. Misalnya jika ada beberapa proyek dalam satu device, dan diperlukan update Django di salah satu proyek, maka update Django bisa dilakukan hanya pada proyek tersebut dengan menggunakan virtual environment. Proyek lain tidak akan terdampak oleh update tersebut dan tetap bisa berjalan secara normal.
+
+4.  1) Model-View-Template (MVT)
+       MVT adalah konsep arsitektur yang diterapkan dalam pengembangan web, khususnya pada framework Django. Konsep arsitektur ini memisahkan komponen-komponen utama dalam pengembangan web, yang terdiri dari komponen Model, View, dan Template, sehingga setiap komponen bisa dikerjakan secara terpisah sebelum akhirnya "disatukan" di akhir.
+       - Model merupakan komponen yang mewakili struktur data dan logika aplikasi, serta menghubungkan aplikasi dengan basis data
+       - View merupakan komponen yang "menyatukan" tampilan antarmuka aplikasi dengan data yang diambil dari Model
+       - Template adalah komponen yang berfungsi untuk mengatur tampilan aplikasi
+
+    2) Model-View-Controller (MVC)
+       Pada dasarnya, MVC memiliki konsep yang sama dengan MVC. Perbedaannya hanya terdapat pada penamaannya. Komponen Template pada konsep MVT ekivalen dengan komponen Controller pada konsep MVC. Framework yang menerapkan konsep ini di antaranya Spring, Laravel, dan Yii.
+
+    3) Model View View Model (MVVM)
+       MVVM merupakan konsep arsitektur yang biasa diterapkan dalam pengembangan aplikasi Android. Konsep arsitektur ini berfokus untuk memisahkan logika dan tampilan aplikasi. Dalam penerapannya, MVVM memiliki beberapa lapisan (layer), yaitu Model, View, dan ViewModel.
+       - Model
