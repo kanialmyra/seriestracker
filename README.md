@@ -97,7 +97,11 @@ Langkah-langkah:
 7) Melakukan deployment ke PWS terhadap aplikasi yang sudah dibuat
 
 Langkah-langkah:
-
+1. Melakukan registrasi di website http://pbp.cs.ui.ac.id
+2. Membuat projek baru
+3. Menjalankan perintah "git remote add pws http://pbp.cs.ui.ac.id/kania.almyra/seriestracker"
+4. Membuat branch baru bernama master dengan menjalankan perintah "git branch -M master"
+5. Melakukan push dengan menjalankan perintah "git push pws master"
 
 
 2. Request -> Internet -> Proyek -> urls.py (URL routing ke aplikasi sesuai request) -> views.py (views.py mengambil data dari models.py dan database serta "menempelkan" template web page dari file html terhadap data) -> Respons ditampilkan dalam bentuk web page 
@@ -114,5 +118,4 @@ Langkah-langkah:
        Pada dasarnya, MVC memiliki konsep yang sama dengan MVC. Perbedaannya hanya terdapat pada penamaannya. Komponen Template pada konsep MVT ekivalen dengan komponen Controller pada konsep MVC. Framework yang menerapkan konsep ini di antaranya Spring, Laravel, dan Yii.
 
     3) Model View View Model (MVVM)
-       MVVM merupakan konsep arsitektur yang biasa diterapkan dalam pengembangan aplikasi Android. Konsep arsitektur ini berfokus untuk memisahkan logika dan tampilan aplikasi. Dalam penerapannya, MVVM memiliki beberapa lapisan (layer), yaitu Model, View, dan ViewModel.
-       - Model
+       MVVM merupakan konsep arsitektur yang biasa diterapkan dalam pengembangan aplikasi Android. Konsep arsitektur ini berfokus untuk memisahkan logika dan tampilan aplikasi. Dalam penerapannya, MVVM memiliki beberapa komponen, yaitu Model, View, dan ViewModel. Komponen Model dan View pada konsep arsitektur ini ekivalen dengan komponen Model dan View pada konsep arsitektur MVC dan MVT. Sementara itu, komponen ViewModel bertugas untuk berinteraksi dengan model di mana data yang ada akan diteruskan ke layer view.
