@@ -1,7 +1,33 @@
+{% extends 'base.html' %} {% block content %}
 <h1>Series Tracker Page</h1>
 
 <h5>Name:</h5>
-<p>{{ name }}</p>
-<p></p>
+<p>{{name}}</p>
+
 <h5>Class:</h5>
-<p>{{ class }}</p>
+<p>{{class}}</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Amount</th>
+    <th>Description</th>
+    
+  </tr>
+
+  {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini
+  {%endcomment %} {% for serial in series %}
+  <tr>
+    <td>{{serial.name}}</td>
+    <td>{{serial.amount}}</td>
+    <td>{{serial.description}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<br />
+
+<a href="{% url 'main:create_series' %}">
+  <button>Add New Series</button>
+</a>
+{% endblock content %}
