@@ -508,3 +508,42 @@ Cookie adalah sejumlah kecil data yang dikirimkan oleh web server ke browser kem
 Q4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
 
 Tidak, terdapat risiko potensial seperti Session Forgery yang memanfaatkan Cookie untuk menginfiltrasi sebuah web. 
+
+
+-----------------------------------------------------------TUGAS 5------------------------------------------------------------------------
+Q1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+    (1) Selector Universal (*):
+        Manfaat: Memilih semua elemen di halaman web
+        Waktu yang tepat: Ketika ingin menerapkan style secara universal pada seluruh elemen dalam halaman web
+
+    (2) Selector Elemen (Tag Selector):
+        Manfaat: Memilih semua elemen HTML dengan tag tertentu, seperti <p>, <div>, <h1>, dan lain-lain
+        Waktu yang tepat: Ketika ingin menerapkan style yang sama pada semua elemen dengan tag yang sama
+
+    (3) Selector Kelas (Class Selector):
+        Manfaat: Memilih elemen berdasarkan kelas yang ditetapkan untuk elemen tersebut
+        Waktu yang tepat: Ketika ingin menerapkan style yang sama pada semua elemen yang memiliki kelas yang sama
+
+    (4) Selector ID (ID Selector):
+        Manfaat: Selector ini memilih elemen berdasarkan ID unik yang diberikan kepada elemen tersebut
+        Waktu yang tepat: Ketika ingin menerapkan style pada satu elemen saja
+
+    (5) Selector Pseudoelemen (::before, ::after, dll.):
+        Manfaat: Memungkinkan untuk membuat elemen virtual dan menerapkan gaya khusus pada bagian-bagian tertentu dari elemen tersebut
+        Waktu yang tepat: Ketika ingin menambahkan konten atau style tambahan ke dalam elemen, seperti icon, dekorasi, atau efek animasi
+
+    (6) Selector Pseudo-kelas (:hover, :active, :focus, dll.):
+        Manfaat: Memilih elemen berdasarkan keadaan atau interaksi pengguna dengan elemen tersebut
+        Waktu yang tepat: Ketika ingin menerapkan style yang berubah saat pengguna melakukan interaksi dengan elemen, seperti hover mouse, klik, atau fokus.
+
+Q2. Jelaskan HTML5 Tag yang kamu ketahui
+    (1) Tag paragraf (<p>), digunakan untuk menandai paragraf
+    (2) Tag teks heading (<h1>, <h2>):, digunakan untuk menandai judul (heading) dan memiliki tingkat kepentingan
+    (3) Tag hyperlink ('<a>'), digunakan untuk menampilkan link
+    (4) Tag gambar ('<img>'), digunakan untuk menampilkan gambar
+    (5) Tag formulir ('<form>), digunakan untuk membuat formulir input
+    (6) Tag tabel ('<table>'), digunakan untuk membuat tabel
+    (7) Tag kotak teks ('<div>'), digunakan untuk mengelompokkan konten HTML dan menerapkan style CSS atau perilaku JavaScript pada kelompok tersebut
+
+Q3. Jelaskan perbedaan antara margin dan padding
+    Margin merupakan ruang di luar 

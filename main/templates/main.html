@@ -1,38 +1,36 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Series Tracker Page</h1>
 
-<h5>Name:</h5>
-<p>{{name}}</p>
-
-<h5>Class:</h5>
-<p>{{class}}</p>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Amount</th>
-    <th>Description</th>
-    
-  </tr>
-
-  {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini
-  {%endcomment %} {% for serial in series %}
-  <tr>
-    <td>{{serial.name}}</td>
-    <td>{{serial.amount}}</td>
-    <td>{{serial.description}}</td>
-  </tr>
-  {% endfor %}
-</table>
-
-<br />
-
-<a href="{% url 'main:create_series' %}">
-  <button>Add New Series</button>
-</a>
-
-<a href="{% url 'main:logout' %}">
-  <button>Logout</button>
-</a>
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+<div class="container">
+  <div class="row">
+    <div class="d-flex justify-content-center p-4">
+      <h1>Series Tracker Page</h1>
+    </div>
+  </div>
+  <div class="row ps-4">
+    <h5>Welcome {{name}} from class {{class}}!</h5>
+  </div>
+  <div class="row p-4">
+    {% for serial in series %}
+      <div class="col">
+        <div class="card border-danger text-white bg-dark mb-3 p-3" style="width: 300px;">
+          <div class="card-body">
+            <h4 class="card-title">{{serial.name}}</h4>
+            <span class="card-subtitle">{{serial.description}}</span>
+            <p class="card-text"><small class="text">{{serial.amount}} total episodes</small></p>
+            <a href="{% url 'main:edit_series' serial.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'main:delete_series' serial.pk %}" class="btn btn-danger">Delete</a>
+          </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="row">
+    <div class="col pb-2 ps-4">
+      <a href="{% url 'main:create_series' %}" class="btn btn-info text-white">Add New Series</a>
+      <a href="{% url 'main:logout' %}" class="btn btn-danger">Logout</a>
+    </div>
+  </div>
+  <div class="row">
+    <small class="text-muted">Sesi terakhir login: {{ last_login }}</small></p>
+  </div>
+</div>
 {% endblock content %}
