@@ -14,6 +14,6 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
     path('edit-series/<int:id>', edit_series, name='edit_series'),
-    path('delete/<int:id>', delete_series, name='delete_series'),
+    path('delete-series/<int:id>', delete_series, name='delete_series'),
     path('create-series-ajax/', add_series_ajax, name='add_series_ajax'),
 ]

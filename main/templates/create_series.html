@@ -1,17 +1,24 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Add New Series</h1>
+<div class="container-fluid pt-4">
 
-<form method="POST">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-    <tr>
-      <td></td>
-      <td>
-        <input type="submit" value="Add Series" />
-      </td>
-    </tr>
-  </table>
-</form>
+  <h1 class="text-center">Add New Series</h1>
+  
+  <form method="POST" class="m-auto w-50">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="amount" class="form-label">Amount</label>
+      <input type="number" class="form-control" id="amount" name="amount">
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Dscription</label>
+      <textarea type="number" class="form-control" id="description" name="description"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Submit</button>
+  </form>
+</div>
 
 {% endblock %}
