@@ -573,56 +573,6 @@
     (7) Tag kotak teks ('<div>'), digunakan untuk mengelompokkan konten HTML dan menerapkan style CSS atau perilaku JavaScript pada kelompok tersebut 
 
 ## TUGAS 6
-### Cara mengimplementasikan checklist
-    (1) Mengubah kode cards data item agar dapat mendukung AJAX GET
-
-    Langkah-langkah:
-
-
-    (2) Melakukan pengambilan task menggunakan AJAX GET
-
-    Langkah-langkah:
-
-
-    (3) Membuat sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan item
-
-    Langkah-langkah:
-
-
-    (4) Membuat fungsi view baru untuk menambahkan item baru ke dalam basis data
-
-    Langkah-langkah:
-        1. Mengimport csrf_exempt dari django.views.decorators.csrf pada file views.py
-        2. Membuat fungsi add_series_ajax dengan kode berikut:
-            @csrf_exempt
-            def add_series_ajax(request):
-                if request.method == 'POST':
-                    name = request.POST.get("name")
-                    amount = request.POST.get("amount")
-                    description = request.POST.get("description")
-                    user = request.user
-
-                    new_series = Item(name=name, amount=amount, description=description, user=user)
-                    new_series.save()
-
-                    return HttpResponse(b"CREATED", status=201)
-
-                return HttpResponseNotFound()
-
-    (5) Membuat path /create-ajax/ yang mengarah ke fungsi view yang baru dibuat
-
-    Langkah-langkah:
-        1. Mengimport fungsi add_series_ajax pada file main/urls.py
-        2. Menambahkan path url fungsi tersebut ke dalam urlpatterns dengan kode berikut:
-            path('create-book-ajax/', add_book_ajax, name='add_book_ajax')
-
-    (6) Menghubungkan form yang telah dibuat di dalam modal kamu ke path /create-ajax/
-
-    Langkah-langkah:
-
-
-    (7) Melakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar item terbaru tanpa reload halaman utama secara keseluruhan
-
 #### Q1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming
 **Synchronous Programming**
 
