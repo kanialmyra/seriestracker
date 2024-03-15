@@ -1,60 +1,75 @@
 {% extends 'base.html' %}
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="./loginstyles.css">
+</head>
 
 {% block meta %}
+
 <div class="container">
   <div class="d-flex justify-content-center p-4">
-    <title>Login</title>
   </div>
 </div>
-
 {% endblock meta %} 
 
 {% block content %}
-<div class="login">
-  <h1>Login</h1>
+<form method="POST" action="">
+  {% csrf_token %}
+  <div id="main-wrapper" class="container">
+    <div class="row justify-content-center">
+        <div class="col-xl-10">
+            <div class="card border-0">
+                <div class="card-body p-0">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6">
+                            <div class="p-5">
+                                <div class="mb-5">
+                                    <h3 class="h4 font-weight-bold text-theme">Login</h3>
+                                </div>
 
-  <form method="POST" action="">
-    {% csrf_token %}
-    <table>
-      <tr>
-        <td>Username:</td>
-        <td>
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            class="form-control"
-          />
-        </td>
-      </tr>
+                                <h6 class="h5 mb-0">Welcome back!</h6>
+                                <p class="text-muted mt-2 mb-5">Enter your username and password to login.</p>
 
-      <tr>
-        <td>Password:</td>
-        <td>
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            class="form-control"
-          />
-        </td>
-      </tr>
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Username</label>
+                                        <input type="text" name = "username" placeholder="Username" class="form-control" id="exampleInputEmail1">
+                                    </div>
+                                    <div class="form-group mb-5">
+                                        <label for="exampleInputPassword1">Password</label>
+                                        <input type="password" name="password" placeholder="Password" class="form-control" id="exampleInputPassword1">
+                                    </div>
+                                    <button type="submit" class="btn btn-theme">Login</button>
+                                </form>
+                            </div>
+                        </div>
 
-      <tr>
-        <td></td>
-        <td><input class="btn login_btn" type="submit" value="Login" /></td>
-      </tr>
-    </table>
-  </form>
+                        <div class="col-lg-6 d-none d-lg-inline-block">
+                            <div class="account-block rounded-right">
+                                <div class="overlay rounded-right"></div>
+                            </div>
+                        </div>
+                    </div>
 
-  {% if messages %}
-  <ul>
-    {% for message in messages %}
-    <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %} Don't have an account yet?
-  <a href="{% url 'main:register' %}">Register Now</a>
-</div>
+                </div>
+                <!-- end card-body -->
+            </div>
+            <!-- end card -->
+            {% if messages %}
+            <ul>
+              {% for message in messages %}
+              <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+
+            {% endif %} <p class="text-muted text-center mt-3 mb-0">Don't have an account? <a href="{% url 'main:register' %}" class="text-primary ml-1">register</a></p>
+
+            <!-- end row -->
+
+        </div>
+        <!-- end col -->
+    </div>
+    <!-- Row -->
+  </div>
 
 {% endblock content %}

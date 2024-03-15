@@ -1,13 +1,14 @@
 from django.shortcuts import render, redirect
 from main.forms import SeriesForm
 from main.models import Item
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.core import serializers
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
 import datetime
 
 @login_required(login_url='/login')
@@ -100,9 +101,21 @@ def edit_series(request, id):
     return render(request, "edit_series.html", context)
 
 def delete_series(request, id):
-    # Get data berdasarkan ID
     series = Item.objects.get(pk = id)
-    # Hapus data
     series.delete()
-    # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('main:show_main'))
+
+@csrf_exempt
+def add_series_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_series = Item(name=name, amount=amount, description=description, user=user)
+        new_series.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()

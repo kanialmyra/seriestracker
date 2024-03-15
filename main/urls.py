@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import show_main, create_series, show_xml, show_json, show_xml_by_id, show_json_by_id, register, login_user, logout_user, edit_series, delete_series
+from main.views import show_main, create_series, show_xml, show_json, show_xml_by_id, show_json_by_id, register, login_user, logout_user, edit_series, delete_series, add_series_ajax
 
 app_name = 'main'
 
@@ -15,4 +15,5 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('edit-series/<int:id>', edit_series, name='edit_series'),
     path('delete/<int:id>', delete_series, name='delete_series'),
+    path('create-series-ajax/', add_series_ajax, name='add_series_ajax'),
 ]
