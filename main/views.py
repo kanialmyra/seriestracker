@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from main.forms import SeriesForm
 from main.models import Item
-from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound, JsonResponse
 from django.core import serializers
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 import datetime
+import json
 
 @login_required(login_url='/login')
 def show_main(request):
@@ -108,14 +109,35 @@ def delete_series(request, id):
 @csrf_exempt
 def add_series_ajax(request):
     if request.method == 'POST':
+        # Retrieve value name, amount, description, and user
         name = request.POST.get("name")
         amount = request.POST.get("amount")
         description = request.POST.get("description")
         user = request.user
 
+        # Make a new Item object with those values
         new_series = Item(name=name, amount=amount, description=description, user=user)
         new_series.save()
 
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
+
+@csrf_exempt
+def create_series_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+
+        new_series = Item.objects.create(
+            user = request.user,
+            name = data["name"],
+            page = int(data["amount"]),
+            description = data["description"]
+        )
+
+        new_series.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
